@@ -8,20 +8,20 @@ namespace LabRepaso_BryanMacario_1283816.Clases
 {
     public class Cancion
     {
-        string ruta;
-        string nombre;
-        string interprete;
-        string duracion;
-        string album;
+        private string ruta;
+        private string nombre;
+        private string interprete;
+        private string duracion;
+        private string album;
 
         
         public Cancion()
         {
-            ruta = string.Empty;
-            nombre = string.Empty;
-            interprete = "Desconocido";
-            duracion = string.Empty;
-            album = "Desconocido";
+            this.ruta = string.Empty;
+            this.nombre = string.Empty;
+            this.interprete = "Desconocido";
+            this.duracion = string.Empty;
+            this.album = "Desconocido";
         }
 
         public string Ruta { get => ruta; set => ruta = value; }

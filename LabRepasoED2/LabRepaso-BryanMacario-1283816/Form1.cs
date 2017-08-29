@@ -16,27 +16,32 @@ namespace LabRepaso_BryanMacario_1283816
 {
     public partial class Form1 : Form
     {
+        List<string> names;
         List<Cancion> musica;
+        List<Cancion> actual;
+        Dictionary<string, Cancion> canciones;
+
 
         public Form1()
         {
-            InitializeComponent();           
+            InitializeComponent();
+            comboBox1.SelectedIndex = 0;
+            canciones = new Dictionary<string, Cancion>();
+            musica = new List<Cancion>();
+            actual = new List<Cancion>();
+            names = new List<string>();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             OpenFileDialog BusquedaArchivos = new OpenFileDialog();
             BusquedaArchivos.Multiselect = true;
+            BusquedaArchivos.Filter = "Archivos de audio|*.mp3;*.wma;*.wav";
 
             if(BusquedaArchivos.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 string[] rutas = BusquedaArchivos.FileNames;
-                string[] names = BusquedaArchivos.SafeFileNames;
-
-                if (musica == null)
-                {
-                    musica = new List<Cancion>();
-                }
+                names = BusquedaArchivos.SafeFileNames.ToList();
 
                 int x = 0;
 
@@ -53,28 +58,92 @@ namespace LabRepaso_BryanMacario_1283816
                     {
                         cancionActual.Interprete = archivoMp3.Tag.FirstPerformer;
                     }
+
                     
                     if(archivoMp3.Tag.Album != null)
                     {
                         cancionActual.Album = archivoMp3.Tag.Album;
                     }
-                   
+
+                    canciones.Add(cancionActual.Nombre, cancionActual);
                     musica.Add(cancionActual);
-
-                    ListViewItem item = new ListViewItem(cancionActual.Nombre);
-                    item.SubItems.Add(cancionActual.Interprete);
-                    item.SubItems.Add(cancionActual.Album);
-                    item.SubItems.Add(cancionActual.Duracion);
-
-                    listViewCanciones.Items.Add(item);
+                    
                     x++;
                 }
+
+                actual = musica;
+                MostrarCanciones(actual);
             }
         }
 
         private void listViewCanciones_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            WMP.URL = musica[listViewCanciones.FocusedItem.Index].Ruta;
+            string ruta = actual[listViewCanciones.FocusedItem.Index].Ruta;
+  
+            WMP.URL = ruta;
+        }
+
+        private void MostrarCanciones(List<Cancion> lista)
+        {          
+            ListViewItem item;
+            listViewCanciones.Items.Clear();
+
+            foreach (var elemento in lista)
+            {
+                item = new ListViewItem(elemento.Nombre);
+
+                item.SubItems.Add(elemento.Interprete);
+                item.SubItems.Add(elemento.Album);
+                item.SubItems.Add(elemento.Duracion);
+
+                listViewCanciones.Items.Add(item);
+            }
+        }
+
+        private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            if(e.Node.Name == "NodoTituloA")
+            {
+                IEnumerable<Cancion> ordenada = actual.OrderBy(obj => obj.Nombre);
+                actual = ordenada.ToList();
+                MostrarCanciones(actual);
+
+            }
+
+            if(e.Node.Name == "NodoTituloD")
+            {
+                IEnumerable<Cancion> ordenada = actual.OrderByDescending(obj => obj.Nombre);
+                actual = ordenada.ToList();
+                MostrarCanciones(actual);
+            }
+
+            if(e.Node.Name == "NodoTamañoA")
+            {
+                IEnumerable<Cancion> ordenada = actual.OrderBy(obj => obj.Duracion);
+                actual = ordenada.ToList();
+                MostrarCanciones(actual);
+            }
+
+            if (e.Node.Name == "NodoTamañoD")
+            {
+                IEnumerable<Cancion> ordenada = actual.OrderByDescending(obj => obj.Duracion);
+                actual = ordenada.ToList();
+                MostrarCanciones(actual);
+            }
+
+            if (e.Node.Name == "NodoInterprete")
+            {
+                IEnumerable<Cancion> ordenada = actual.OrderBy(obj => obj.Interprete);
+                actual = ordenada.ToList();
+                MostrarCanciones(actual);
+            }
+
+            if (e.Node.Name == "NodoAlbum")
+            {
+                IEnumerable<Cancion> ordenada = actual.OrderBy(obj => obj.Album);
+                actual = ordenada.ToList();
+                MostrarCanciones(actual);
+            }
         }
     }
 }
