@@ -13,8 +13,7 @@ namespace LabRepaso_BryanMacario_1283816.Clases
         private string interprete;
         private string duracion;
         private string album;
-
-        
+    
         public Cancion()
         {
             this.ruta = string.Empty;

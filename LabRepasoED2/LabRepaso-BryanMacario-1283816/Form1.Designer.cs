@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Vacio");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Toda la música");
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Listas de Reproducción", new System.Windows.Forms.TreeNode[] {
             treeNode1});
             System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Ascendente");
@@ -57,15 +57,25 @@
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ordenarPorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.títuloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ascendenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.descendenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tamañoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ascendenteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.descendenteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.interpreteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fechaDeModificaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nombreDelArchivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.albúmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDelSoftwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gBBiblioteca = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.gBCrearLista = new System.Windows.Forms.GroupBox();
+            this.btnCerrar = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnQuitar = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.listBoxMostrar = new System.Windows.Forms.ListBox();
+            this.lblNombreLista = new System.Windows.Forms.Label();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             this.listViewCanciones = new System.Windows.Forms.ListView();
             this.columnName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnInterprete = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -75,19 +85,22 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.WMP = new AxWMPLib.AxWindowsMediaPlayer();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.gBBiblioteca.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.gBCrearLista.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WMP)).BeginInit();
             this.SuspendLayout();
             // 
             // treeView1
             // 
             this.treeView1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.treeView1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.treeView1.Location = new System.Drawing.Point(6, 19);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "NodoLista1";
-            treeNode1.Text = "Vacio";
+            treeNode1.Name = "NodoTodo";
+            treeNode1.Text = "Toda la música";
             treeNode2.Name = "NodoListas";
             treeNode2.Text = "Listas de Reproducción";
             treeNode3.Name = "NodoTituloA";
@@ -123,7 +136,7 @@
             this.ayudaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(741, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(816, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -161,41 +174,64 @@
             this.títuloToolStripMenuItem,
             this.tamañoToolStripMenuItem,
             this.interpreteToolStripMenuItem,
-            this.fechaDeModificaciónToolStripMenuItem,
-            this.nombreDelArchivoToolStripMenuItem});
+            this.albúmToolStripMenuItem});
             this.ordenarPorToolStripMenuItem.Name = "ordenarPorToolStripMenuItem";
             this.ordenarPorToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
             this.ordenarPorToolStripMenuItem.Text = "Ordenar Por";
             // 
             // títuloToolStripMenuItem
             // 
+            this.títuloToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ascendenteToolStripMenuItem,
+            this.descendenteToolStripMenuItem});
             this.títuloToolStripMenuItem.Name = "títuloToolStripMenuItem";
-            this.títuloToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.títuloToolStripMenuItem.Text = "Título";
+            this.títuloToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.títuloToolStripMenuItem.Text = "Nombre";
+            // 
+            // ascendenteToolStripMenuItem
+            // 
+            this.ascendenteToolStripMenuItem.Name = "ascendenteToolStripMenuItem";
+            this.ascendenteToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.ascendenteToolStripMenuItem.Text = "Ascendente";
+            // 
+            // descendenteToolStripMenuItem
+            // 
+            this.descendenteToolStripMenuItem.Name = "descendenteToolStripMenuItem";
+            this.descendenteToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.descendenteToolStripMenuItem.Text = "Descendente";
             // 
             // tamañoToolStripMenuItem
             // 
+            this.tamañoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ascendenteToolStripMenuItem1,
+            this.descendenteToolStripMenuItem1});
             this.tamañoToolStripMenuItem.Name = "tamañoToolStripMenuItem";
-            this.tamañoToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.tamañoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.tamañoToolStripMenuItem.Text = "Duración";
+            // 
+            // ascendenteToolStripMenuItem1
+            // 
+            this.ascendenteToolStripMenuItem1.Name = "ascendenteToolStripMenuItem1";
+            this.ascendenteToolStripMenuItem1.Size = new System.Drawing.Size(142, 22);
+            this.ascendenteToolStripMenuItem1.Text = "Ascendente";
+            // 
+            // descendenteToolStripMenuItem1
+            // 
+            this.descendenteToolStripMenuItem1.Name = "descendenteToolStripMenuItem1";
+            this.descendenteToolStripMenuItem1.Size = new System.Drawing.Size(142, 22);
+            this.descendenteToolStripMenuItem1.Text = "Descendente";
             // 
             // interpreteToolStripMenuItem
             // 
             this.interpreteToolStripMenuItem.Name = "interpreteToolStripMenuItem";
-            this.interpreteToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.interpreteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.interpreteToolStripMenuItem.Text = "Interprete";
             // 
-            // fechaDeModificaciónToolStripMenuItem
+            // albúmToolStripMenuItem
             // 
-            this.fechaDeModificaciónToolStripMenuItem.Name = "fechaDeModificaciónToolStripMenuItem";
-            this.fechaDeModificaciónToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.fechaDeModificaciónToolStripMenuItem.Text = "Fecha de Modificación";
-            // 
-            // nombreDelArchivoToolStripMenuItem
-            // 
-            this.nombreDelArchivoToolStripMenuItem.Name = "nombreDelArchivoToolStripMenuItem";
-            this.nombreDelArchivoToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.nombreDelArchivoToolStripMenuItem.Text = "Nombre del Archivo";
+            this.albúmToolStripMenuItem.Name = "albúmToolStripMenuItem";
+            this.albúmToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.albúmToolStripMenuItem.Text = "Albúm";
             // 
             // ayudaToolStripMenuItem
             // 
@@ -224,7 +260,8 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.btnEliminar);
+            this.panel1.Controls.Add(this.gBCrearLista);
             this.panel1.Controls.Add(this.listViewCanciones);
             this.panel1.Controls.Add(this.btnCrearLista);
             this.panel1.Controls.Add(this.btnAdd);
@@ -232,23 +269,101 @@
             this.panel1.Controls.Add(this.WMP);
             this.panel1.Location = new System.Drawing.Point(177, 28);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(552, 369);
+            this.panel1.Size = new System.Drawing.Size(627, 369);
             this.panel1.TabIndex = 3;
             // 
-            // comboBox1
+            // gBCrearLista
             // 
-            this.comboBox1.AllowDrop = true;
-            this.comboBox1.Font = new System.Drawing.Font("Arial Narrow", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Por Nombre",
-            "Por Interprete"});
-            this.comboBox1.Location = new System.Drawing.Point(436, 14);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(113, 24);
-            this.comboBox1.TabIndex = 4;
-            this.comboBox1.Text = "Tipo de busqueda";
+            this.gBCrearLista.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.gBCrearLista.Controls.Add(this.btnCerrar);
+            this.gBCrearLista.Controls.Add(this.btnGuardar);
+            this.gBCrearLista.Controls.Add(this.btnQuitar);
+            this.gBCrearLista.Controls.Add(this.btnAgregar);
+            this.gBCrearLista.Controls.Add(this.listBoxMostrar);
+            this.gBCrearLista.Controls.Add(this.lblNombreLista);
+            this.gBCrearLista.Controls.Add(this.txtNombre);
+            this.gBCrearLista.Enabled = false;
+            this.gBCrearLista.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.gBCrearLista.Location = new System.Drawing.Point(453, 14);
+            this.gBCrearLista.Name = "gBCrearLista";
+            this.gBCrearLista.Size = new System.Drawing.Size(171, 297);
+            this.gBCrearLista.TabIndex = 6;
+            this.gBCrearLista.TabStop = false;
+            this.gBCrearLista.Visible = false;
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.BackColor = System.Drawing.SystemColors.ControlText;
+            this.btnCerrar.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnCerrar.Location = new System.Drawing.Point(153, -2);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(21, 21);
+            this.btnCerrar.TabIndex = 6;
+            this.btnCerrar.Text = "X";
+            this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnGuardar.Location = new System.Drawing.Point(33, 265);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(103, 26);
+            this.btnGuardar.TabIndex = 5;
+            this.btnGuardar.Text = "Guardar Cambios";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // btnQuitar
+            // 
+            this.btnQuitar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnQuitar.Location = new System.Drawing.Point(91, 232);
+            this.btnQuitar.Name = "btnQuitar";
+            this.btnQuitar.Size = new System.Drawing.Size(62, 27);
+            this.btnQuitar.TabIndex = 4;
+            this.btnQuitar.Text = "Quitar";
+            this.btnQuitar.UseVisualStyleBackColor = true;
+            this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnAgregar.Location = new System.Drawing.Point(18, 232);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(62, 27);
+            this.btnAgregar.TabIndex = 3;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // listBoxMostrar
+            // 
+            this.listBoxMostrar.FormattingEnabled = true;
+            this.listBoxMostrar.Location = new System.Drawing.Point(6, 71);
+            this.listBoxMostrar.Name = "listBoxMostrar";
+            this.listBoxMostrar.Size = new System.Drawing.Size(159, 160);
+            this.listBoxMostrar.TabIndex = 2;
+            // 
+            // lblNombreLista
+            // 
+            this.lblNombreLista.AutoSize = true;
+            this.lblNombreLista.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblNombreLista.Location = new System.Drawing.Point(15, 22);
+            this.lblNombreLista.Name = "lblNombreLista";
+            this.lblNombreLista.Size = new System.Drawing.Size(138, 13);
+            this.lblNombreLista.TabIndex = 1;
+            this.lblNombreLista.Text = "Ingrese el nombre de la lista";
+            this.lblNombreLista.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(6, 45);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(159, 20);
+            this.txtNombre.TabIndex = 0;
+            this.txtNombre.Text = "NuevaLista";
+            this.txtNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtNombre.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtNombre_MouseClick);
             // 
             // listViewCanciones
             // 
@@ -259,7 +374,7 @@
             this.columnDuracion});
             this.listViewCanciones.Location = new System.Drawing.Point(4, 43);
             this.listViewCanciones.Name = "listViewCanciones";
-            this.listViewCanciones.Size = new System.Drawing.Size(545, 268);
+            this.listViewCanciones.Size = new System.Drawing.Size(623, 268);
             this.listViewCanciones.TabIndex = 5;
             this.listViewCanciones.UseCompatibleStateImageBehavior = false;
             this.listViewCanciones.View = System.Windows.Forms.View.Details;
@@ -268,40 +383,41 @@
             // columnName
             // 
             this.columnName.Text = "Nombre";
-            this.columnName.Width = 234;
+            this.columnName.Width = 225;
             // 
             // columnInterprete
             // 
             this.columnInterprete.Text = "Interprete";
             this.columnInterprete.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnInterprete.Width = 142;
+            this.columnInterprete.Width = 149;
             // 
             // columnAlbum
             // 
             this.columnAlbum.Text = "Albúm";
             this.columnAlbum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnAlbum.Width = 88;
+            this.columnAlbum.Width = 127;
             // 
             // columnDuracion
             // 
             this.columnDuracion.Text = "Duración";
             this.columnDuracion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnDuracion.Width = 75;
+            this.columnDuracion.Width = 116;
             // 
             // btnCrearLista
             // 
-            this.btnCrearLista.Location = new System.Drawing.Point(133, 13);
+            this.btnCrearLista.Location = new System.Drawing.Point(107, 11);
             this.btnCrearLista.Name = "btnCrearLista";
-            this.btnCrearLista.Size = new System.Drawing.Size(102, 24);
+            this.btnCrearLista.Size = new System.Drawing.Size(84, 24);
             this.btnCrearLista.TabIndex = 4;
             this.btnCrearLista.Text = "Crear Playlist";
             this.btnCrearLista.UseVisualStyleBackColor = true;
+            this.btnCrearLista.Click += new System.EventHandler(this.btnCrearLista_Click);
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(15, 12);
+            this.btnAdd.Location = new System.Drawing.Point(4, 12);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(102, 23);
+            this.btnAdd.Size = new System.Drawing.Size(97, 23);
             this.btnAdd.TabIndex = 3;
             this.btnAdd.Text = "Agregar Música";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -311,10 +427,11 @@
             // 
             this.textBox1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.ForeColor = System.Drawing.Color.DimGray;
-            this.textBox1.Location = new System.Drawing.Point(265, 13);
+            this.textBox1.Location = new System.Drawing.Point(266, 14);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(165, 21);
+            this.textBox1.Size = new System.Drawing.Size(181, 21);
             this.textBox1.TabIndex = 2;
+            this.textBox1.Tag = "";
             this.textBox1.Text = "Buscar";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -324,8 +441,18 @@
             this.WMP.Location = new System.Drawing.Point(4, 317);
             this.WMP.Name = "WMP";
             this.WMP.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("WMP.OcxState")));
-            this.WMP.Size = new System.Drawing.Size(545, 46);
+            this.WMP.Size = new System.Drawing.Size(620, 46);
             this.WMP.TabIndex = 0;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Location = new System.Drawing.Point(197, 11);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(63, 25);
+            this.btnEliminar.TabIndex = 7;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // Form1
             // 
@@ -333,7 +460,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.InfoText;
-            this.ClientSize = new System.Drawing.Size(741, 409);
+            this.ClientSize = new System.Drawing.Size(816, 404);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.gBBiblioteca);
             this.Controls.Add(this.menuStrip1);
@@ -346,6 +473,8 @@
             this.gBBiblioteca.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.gBCrearLista.ResumeLayout(false);
+            this.gBCrearLista.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WMP)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -364,8 +493,6 @@
         private System.Windows.Forms.ToolStripMenuItem títuloToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tamañoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem interpreteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem fechaDeModificaciónToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem nombreDelArchivoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ayudaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem acercaDelSoftwareToolStripMenuItem;
         private System.Windows.Forms.GroupBox gBBiblioteca;
@@ -379,7 +506,20 @@
         private System.Windows.Forms.ColumnHeader columnInterprete;
         private System.Windows.Forms.ColumnHeader columnAlbum;
         private System.Windows.Forms.ColumnHeader columnDuracion;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.GroupBox gBCrearLista;
+        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnQuitar;
+        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.ListBox listBoxMostrar;
+        private System.Windows.Forms.Label lblNombreLista;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.ToolStripMenuItem ascendenteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem descendenteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ascendenteToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem descendenteToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem albúmToolStripMenuItem;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }
 

@@ -16,20 +16,21 @@ namespace LabRepaso_BryanMacario_1283816
 {
     public partial class Form1 : Form
     {
-        List<string> names;
-        List<Cancion> musica;
-        List<Cancion> actual;
-        Dictionary<string, Cancion> canciones;
-
+        private List<string> names;
+        private List<ListaReproduccion> listas;
+        private List<Cancion> actual;
+        private int contador = 0;
+        private int listaActual = 0;
 
         public Form1()
         {
             InitializeComponent();
-            comboBox1.SelectedIndex = 0;
-            canciones = new Dictionary<string, Cancion>();
-            musica = new List<Cancion>();
-            actual = new List<Cancion>();
+            listas = new List<ListaReproduccion>();
+            listas.Add(new ListaReproduccion("Default"));
+            actual = listas[0].Canciones;
             names = new List<string>();
+            contador = 1;
+            ConfiguracionesIniciales();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -40,6 +41,7 @@ namespace LabRepaso_BryanMacario_1283816
 
             if(BusquedaArchivos.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
+
                 string[] rutas = BusquedaArchivos.FileNames;
                 names = BusquedaArchivos.SafeFileNames.ToList();
 
@@ -65,22 +67,22 @@ namespace LabRepaso_BryanMacario_1283816
                         cancionActual.Album = archivoMp3.Tag.Album;
                     }
 
-                    canciones.Add(cancionActual.Nombre, cancionActual);
-                    musica.Add(cancionActual);
+                    listas[listaActual].Canciones.Add(cancionActual);
                     
                     x++;
                 }
 
-                actual = musica;
+                actual = listas[listaActual].Canciones;
                 MostrarCanciones(actual);
             }
         }
 
         private void listViewCanciones_MouseDoubleClick(object sender, MouseEventArgs e)
         {
+
             string ruta = actual[listViewCanciones.FocusedItem.Index].Ruta;
-  
-            WMP.URL = ruta;
+
+            WMP.URL = ruta;      
         }
 
         private void MostrarCanciones(List<Cancion> lista)
@@ -102,19 +104,39 @@ namespace LabRepaso_BryanMacario_1283816
 
         private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            if(e.Node.Name == "NodoTituloA")
+            foreach(var element in listas)
+            {
+                if(e.Node.Name == element.Nombre)
+                {
+                    listaActual = element.Numero;
+                    actual = element.Canciones;
+                    MostrarCanciones(actual);
+                    return;
+                }
+            }
+
+            if (e.Node.Name == "NodoTodo")
+            {
+                listaActual = 0;
+                actual = listas[0].Canciones;  
+                MostrarCanciones(actual);
+                return;
+            }
+
+            if (e.Node.Name == "NodoTituloA")
             {
                 IEnumerable<Cancion> ordenada = actual.OrderBy(obj => obj.Nombre);
                 actual = ordenada.ToList();
                 MostrarCanciones(actual);
-
+                return;
             }
 
-            if(e.Node.Name == "NodoTituloD")
+            if (e.Node.Name == "NodoTituloD")
             {
                 IEnumerable<Cancion> ordenada = actual.OrderByDescending(obj => obj.Nombre);
                 actual = ordenada.ToList();
                 MostrarCanciones(actual);
+                return;
             }
 
             if(e.Node.Name == "NodoTamañoA")
@@ -122,6 +144,7 @@ namespace LabRepaso_BryanMacario_1283816
                 IEnumerable<Cancion> ordenada = actual.OrderBy(obj => obj.Duracion);
                 actual = ordenada.ToList();
                 MostrarCanciones(actual);
+                return;
             }
 
             if (e.Node.Name == "NodoTamañoD")
@@ -129,13 +152,15 @@ namespace LabRepaso_BryanMacario_1283816
                 IEnumerable<Cancion> ordenada = actual.OrderByDescending(obj => obj.Duracion);
                 actual = ordenada.ToList();
                 MostrarCanciones(actual);
+                return;
             }
 
             if (e.Node.Name == "NodoInterprete")
             {
-                IEnumerable<Cancion> ordenada = actual.OrderBy(obj => obj.Interprete);
+                IEnumerable<Cancion> ordenada = actual.OrderByDescending(obj => obj.Interprete);
                 actual = ordenada.ToList();
                 MostrarCanciones(actual);
+                return;
             }
 
             if (e.Node.Name == "NodoAlbum")
@@ -143,7 +168,162 @@ namespace LabRepaso_BryanMacario_1283816
                 IEnumerable<Cancion> ordenada = actual.OrderBy(obj => obj.Album);
                 actual = ordenada.ToList();
                 MostrarCanciones(actual);
+                return;
             }
+            
+        }
+
+        private void CrearNuevaLista()
+        {
+            actual = listas[0].Canciones;
+            MostrarCanciones(actual);
+
+            ConfiguracionesCrearNuevaLista();
+
+            MessageBox.Show("Para agregar canciones a la nueva lista  de reproducción," +
+                            "\npor favor seleccione las canciones de la biblioteca y " +
+                           "\nluego presione el boton 'Agregar'." +
+                           "\nPuede seleccionar varios elementos a la vez, debe mantener" +
+                           "\npresionado 'ctrl' y clickear sobre las canciones deseadas.", "Nueva lista de reproducción", 
+                           MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            txtNombre.Focus();
+        }
+
+        private void ConfiguracionesIniciales()
+        {
+            listViewCanciones.Width = 623;
+
+            listViewCanciones.Columns[0].Width = 225;
+            listViewCanciones.Columns[1].Width = 150;
+            listViewCanciones.Columns[2].Width = 127;
+            listViewCanciones.Columns[3].Width = 116;
+
+            gBCrearLista.Enabled = false;
+            gBCrearLista.Visible = false;
+        }
+
+        private void ConfiguracionesCrearNuevaLista()
+        {
+            listViewCanciones.Width = 445;
+            listViewCanciones.Columns[0].Width = 165;
+            listViewCanciones.Columns[1].Width = 100;
+            listViewCanciones.Columns[2].Width = 85;
+            listViewCanciones.Columns[3].Width = 90;
+
+            listBoxMostrar.Items.Clear();
+
+            gBCrearLista.Enabled = true;
+            gBCrearLista.Visible = true;
+            btnGuardar.Enabled = false;
+            btnQuitar.Enabled = false;
+        }
+
+        private void txtNombre_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtNombre.SelectAll();
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            listViewCanciones.Width = 623;
+
+            listViewCanciones.Columns[0].Width = 225;
+            listViewCanciones.Columns[1].Width = 150;
+            listViewCanciones.Columns[2].Width = 127;
+            listViewCanciones.Columns[3].Width = 116;
+
+            gBCrearLista.Enabled = false;
+            gBCrearLista.Visible = false;
+        }
+
+        private void btnCrearLista_Click(object sender, EventArgs e)
+        {
+            CrearNuevaLista();
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+                      
+            if(listViewCanciones.FocusedItem != null)
+            {
+                ListView.SelectedIndexCollection indices = listViewCanciones.SelectedIndices;
+                listas.Add(new ListaReproduccion());
+
+                foreach(int i in indices)
+                {
+                    listas[contador].Canciones.Add(listas[0].Canciones[i]);
+                    listas[contador].Buscador.Add(listas[0].Canciones[i].Nombre, listas[0].Canciones[i]);
+                    listBoxMostrar.Items.Add(listas[0].Canciones[i].Nombre);
+                }
+
+                btnGuardar.Enabled = true;
+                btnQuitar.Enabled = true;
+            }
+            
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            if(txtNombre.Text == "NuevaLista")
+            {
+                listas[contador].Nombre = txtNombre.Text + contador.ToString();
+                listas[contador].Numero = contador;
+
+                TreeNode nuevo = new TreeNode();
+
+                nuevo.Text = listas[contador].Nombre;
+                nuevo.Name = listas[contador].Nombre;
+                treeView1.Nodes[0].Nodes.Add(nuevo);
+            }
+            else
+            {
+                listas[contador].Nombre = txtNombre.Text;
+                listas[contador].Numero = contador;
+
+                TreeNode nuevo = new TreeNode();
+
+                nuevo.Text = listas[contador].Nombre;
+                nuevo.Name = listas[contador].Nombre;
+                treeView1.Nodes[0].Nodes.Add(nuevo);             
+            }
+            
+            contador++;
+            ConfiguracionesIniciales();       
+        }
+
+        private void btnQuitar_Click(object sender, EventArgs e)
+        {
+            ListBox.SelectedIndexCollection indices = listBoxMostrar.SelectedIndices;
+
+            foreach(int i in indices)
+            {
+                listas[contador].Canciones.RemoveAt(i);
+                listas[contador].Buscador.Remove(listBoxMostrar.Items[i].ToString());
+                listBoxMostrar.Items.RemoveAt(i);
+            }
+
+            if(listBoxMostrar.Items.Count == 0)
+            {
+                btnQuitar.Enabled = false;
+                btnGuardar.Enabled = false;
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (listViewCanciones.FocusedItem != null)
+            {
+                ListView.SelectedIndexCollection indices = listViewCanciones.SelectedIndices;
+
+                foreach (int i in indices)
+                {
+                    listas[listaActual].Buscador.Remove(listas[listaActual].Canciones[i].Nombre);
+                    listas[listaActual].Canciones.RemoveAt(i);                
+                    listViewCanciones.Items.RemoveAt(i);
+                }
+            }
+
         }
     }
 }
