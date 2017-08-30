@@ -28,26 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Toda la música");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Listas de Reproducción", new System.Windows.Forms.TreeNode[] {
-            treeNode1});
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Ascendente");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Descendente");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Nombre", new System.Windows.Forms.TreeNode[] {
-            treeNode3,
-            treeNode4});
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Ascendente");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Descendente");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Duración", new System.Windows.Forms.TreeNode[] {
-            treeNode6,
-            treeNode7});
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Interprete");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Albúm");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Música", new System.Windows.Forms.TreeNode[] {
-            treeNode5,
-            treeNode8,
-            treeNode9,
-            treeNode10});
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.TreeNode treeNode67 = new System.Windows.Forms.TreeNode("Toda la música");
+            System.Windows.Forms.TreeNode treeNode68 = new System.Windows.Forms.TreeNode("Listas de Reproducción", new System.Windows.Forms.TreeNode[] {
+            treeNode67});
+            System.Windows.Forms.TreeNode treeNode69 = new System.Windows.Forms.TreeNode("Ascendente");
+            System.Windows.Forms.TreeNode treeNode70 = new System.Windows.Forms.TreeNode("Descendente");
+            System.Windows.Forms.TreeNode treeNode71 = new System.Windows.Forms.TreeNode("Nombre", new System.Windows.Forms.TreeNode[] {
+            treeNode69,
+            treeNode70});
+            System.Windows.Forms.TreeNode treeNode72 = new System.Windows.Forms.TreeNode("Ascendente");
+            System.Windows.Forms.TreeNode treeNode73 = new System.Windows.Forms.TreeNode("Descendente");
+            System.Windows.Forms.TreeNode treeNode74 = new System.Windows.Forms.TreeNode("Duración", new System.Windows.Forms.TreeNode[] {
+            treeNode72,
+            treeNode73});
+            System.Windows.Forms.TreeNode treeNode75 = new System.Windows.Forms.TreeNode("Interprete");
+            System.Windows.Forms.TreeNode treeNode76 = new System.Windows.Forms.TreeNode("Albúm");
+            System.Windows.Forms.TreeNode treeNode77 = new System.Windows.Forms.TreeNode("Música", new System.Windows.Forms.TreeNode[] {
+            treeNode71,
+            treeNode74,
+            treeNode75,
+            treeNode76});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -86,11 +87,23 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.WMP = new AxWMPLib.AxWindowsMediaPlayer();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.macTrackStatus = new XComponent.SliderBar.MACTrackBar();
+            this.macTrackVolumen = new XComponent.SliderBar.MACTrackBar();
+            this.btnVolumen = new System.Windows.Forms.PictureBox();
+            this.btnStop = new System.Windows.Forms.PictureBox();
+            this.btnPlay = new System.Windows.Forms.PictureBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.labelCancion = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.gBBiblioteca.SuspendLayout();
             this.panel1.SuspendLayout();
             this.gBCrearLista.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WMP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnVolumen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnStop)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPlay)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // treeView1
@@ -99,32 +112,32 @@
             this.treeView1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.treeView1.Location = new System.Drawing.Point(6, 19);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "NodoTodo";
-            treeNode1.Text = "Toda la música";
-            treeNode2.Name = "NodoListas";
-            treeNode2.Text = "Listas de Reproducción";
-            treeNode3.Name = "NodoTituloA";
-            treeNode3.Text = "Ascendente";
-            treeNode4.Name = "NodoTituloD";
-            treeNode4.Text = "Descendente";
-            treeNode5.Name = "NodoTitulo";
-            treeNode5.Text = "Nombre";
-            treeNode6.Name = "NodoTamañoA";
-            treeNode6.Text = "Ascendente";
-            treeNode7.Name = "NodoTamañoD";
-            treeNode7.Text = "Descendente";
-            treeNode8.Name = "NodoTamaño";
-            treeNode8.Text = "Duración";
-            treeNode9.Name = "NodoInterprete";
-            treeNode9.Text = "Interprete";
-            treeNode10.Name = "NodoAlbum";
-            treeNode10.Text = "Albúm";
-            treeNode11.Name = "NodoMusica";
-            treeNode11.Text = "Música";
+            treeNode67.Name = "NodoTodo";
+            treeNode67.Text = "Toda la música";
+            treeNode68.Name = "NodoListas";
+            treeNode68.Text = "Listas de Reproducción";
+            treeNode69.Name = "NodoTituloA";
+            treeNode69.Text = "Ascendente";
+            treeNode70.Name = "NodoTituloD";
+            treeNode70.Text = "Descendente";
+            treeNode71.Name = "NodoTitulo";
+            treeNode71.Text = "Nombre";
+            treeNode72.Name = "NodoTamañoA";
+            treeNode72.Text = "Ascendente";
+            treeNode73.Name = "NodoTamañoD";
+            treeNode73.Text = "Descendente";
+            treeNode74.Name = "NodoTamaño";
+            treeNode74.Text = "Duración";
+            treeNode75.Name = "NodoInterprete";
+            treeNode75.Text = "Interprete";
+            treeNode76.Name = "NodoAlbum";
+            treeNode76.Text = "Albúm";
+            treeNode77.Name = "NodoMusica";
+            treeNode77.Text = "Música";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode2,
-            treeNode11});
-            this.treeView1.Size = new System.Drawing.Size(146, 344);
+            treeNode68,
+            treeNode77});
+            this.treeView1.Size = new System.Drawing.Size(146, 292);
             this.treeView1.TabIndex = 0;
             this.treeView1.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseClick);
             // 
@@ -185,7 +198,7 @@
             this.ascendenteToolStripMenuItem,
             this.descendenteToolStripMenuItem});
             this.títuloToolStripMenuItem.Name = "títuloToolStripMenuItem";
-            this.títuloToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.títuloToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.títuloToolStripMenuItem.Text = "Nombre";
             // 
             // ascendenteToolStripMenuItem
@@ -206,7 +219,7 @@
             this.ascendenteToolStripMenuItem1,
             this.descendenteToolStripMenuItem1});
             this.tamañoToolStripMenuItem.Name = "tamañoToolStripMenuItem";
-            this.tamañoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.tamañoToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.tamañoToolStripMenuItem.Text = "Duración";
             // 
             // ascendenteToolStripMenuItem1
@@ -224,13 +237,13 @@
             // interpreteToolStripMenuItem
             // 
             this.interpreteToolStripMenuItem.Name = "interpreteToolStripMenuItem";
-            this.interpreteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.interpreteToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.interpreteToolStripMenuItem.Text = "Interprete";
             // 
             // albúmToolStripMenuItem
             // 
             this.albúmToolStripMenuItem.Name = "albúmToolStripMenuItem";
-            this.albúmToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.albúmToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.albúmToolStripMenuItem.Text = "Albúm";
             // 
             // ayudaToolStripMenuItem
@@ -253,7 +266,7 @@
             this.gBBiblioteca.Controls.Add(this.treeView1);
             this.gBBiblioteca.Location = new System.Drawing.Point(13, 28);
             this.gBBiblioteca.Name = "gBBiblioteca";
-            this.gBBiblioteca.Size = new System.Drawing.Size(158, 369);
+            this.gBBiblioteca.Size = new System.Drawing.Size(158, 329);
             this.gBBiblioteca.TabIndex = 2;
             this.gBBiblioteca.TabStop = false;
             this.gBBiblioteca.Text = "Biblioteca";
@@ -266,10 +279,9 @@
             this.panel1.Controls.Add(this.btnCrearLista);
             this.panel1.Controls.Add(this.btnAdd);
             this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.WMP);
             this.panel1.Location = new System.Drawing.Point(177, 28);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(627, 369);
+            this.panel1.Size = new System.Drawing.Size(627, 329);
             this.panel1.TabIndex = 3;
             // 
             // gBCrearLista
@@ -286,7 +298,7 @@
             this.gBCrearLista.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.gBCrearLista.Location = new System.Drawing.Point(453, 14);
             this.gBCrearLista.Name = "gBCrearLista";
-            this.gBCrearLista.Size = new System.Drawing.Size(171, 297);
+            this.gBCrearLista.Size = new System.Drawing.Size(171, 312);
             this.gBCrearLista.TabIndex = 6;
             this.gBCrearLista.TabStop = false;
             this.gBCrearLista.Visible = false;
@@ -374,7 +386,7 @@
             this.columnDuracion});
             this.listViewCanciones.Location = new System.Drawing.Point(4, 43);
             this.listViewCanciones.Name = "listViewCanciones";
-            this.listViewCanciones.Size = new System.Drawing.Size(623, 268);
+            this.listViewCanciones.Size = new System.Drawing.Size(623, 283);
             this.listViewCanciones.TabIndex = 5;
             this.listViewCanciones.UseCompatibleStateImageBehavior = false;
             this.listViewCanciones.View = System.Windows.Forms.View.Details;
@@ -438,11 +450,13 @@
             // WMP
             // 
             this.WMP.Enabled = true;
-            this.WMP.Location = new System.Drawing.Point(4, 317);
+            this.WMP.Location = new System.Drawing.Point(592, 403);
             this.WMP.Name = "WMP";
             this.WMP.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("WMP.OcxState")));
-            this.WMP.Size = new System.Drawing.Size(620, 46);
+            this.WMP.Size = new System.Drawing.Size(118, 46);
             this.WMP.TabIndex = 0;
+            this.WMP.Visible = false;
+            this.WMP.PlayStateChange += new AxWMPLib._WMPOCXEvents_PlayStateChangeEventHandler(this.WMP_PlayStateChange);
             // 
             // btnEliminar
             // 
@@ -454,15 +468,133 @@
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
+            // macTrackStatus
+            // 
+            this.macTrackStatus.BackColor = System.Drawing.Color.Transparent;
+            this.macTrackStatus.BorderColor = System.Drawing.SystemColors.ActiveBorder;
+            this.macTrackStatus.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.macTrackStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(125)))), ((int)(((byte)(123)))));
+            this.macTrackStatus.IndentHeight = 6;
+            this.macTrackStatus.Location = new System.Drawing.Point(39, 47);
+            this.macTrackStatus.Maximum = 100;
+            this.macTrackStatus.Minimum = 0;
+            this.macTrackStatus.Name = "macTrackStatus";
+            this.macTrackStatus.Size = new System.Drawing.Size(713, 25);
+            this.macTrackStatus.TabIndex = 8;
+            this.macTrackStatus.TextTickStyle = System.Windows.Forms.TickStyle.None;
+            this.macTrackStatus.TickColor = System.Drawing.Color.Red;
+            this.macTrackStatus.TickHeight = 4;
+            this.macTrackStatus.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.macTrackStatus.TrackerColor = System.Drawing.Color.Red;
+            this.macTrackStatus.TrackerSize = new System.Drawing.Size(13, 13);
+            this.macTrackStatus.TrackLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.macTrackStatus.TrackLineHeight = 3;
+            this.macTrackStatus.TrackLineSelectedColor = System.Drawing.Color.Red;
+            this.macTrackStatus.Value = 0;
+            // 
+            // macTrackVolumen
+            // 
+            this.macTrackVolumen.BackColor = System.Drawing.Color.Transparent;
+            this.macTrackVolumen.BorderColor = System.Drawing.SystemColors.ActiveBorder;
+            this.macTrackVolumen.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.macTrackVolumen.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.macTrackVolumen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(125)))), ((int)(((byte)(123)))));
+            this.macTrackVolumen.IndentHeight = 6;
+            this.macTrackVolumen.Location = new System.Drawing.Point(659, 13);
+            this.macTrackVolumen.Maximum = 100;
+            this.macTrackVolumen.Minimum = 0;
+            this.macTrackVolumen.Name = "macTrackVolumen";
+            this.macTrackVolumen.Size = new System.Drawing.Size(93, 24);
+            this.macTrackVolumen.TabIndex = 9;
+            this.macTrackVolumen.TextTickStyle = System.Windows.Forms.TickStyle.None;
+            this.macTrackVolumen.TickColor = System.Drawing.Color.Red;
+            this.macTrackVolumen.TickHeight = 4;
+            this.macTrackVolumen.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.macTrackVolumen.TrackerColor = System.Drawing.Color.Red;
+            this.macTrackVolumen.TrackerSize = new System.Drawing.Size(10, 12);
+            this.macTrackVolumen.TrackLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.macTrackVolumen.TrackLineHeight = 3;
+            this.macTrackVolumen.TrackLineSelectedColor = System.Drawing.Color.Red;
+            this.macTrackVolumen.Value = 0;
+            this.macTrackVolumen.ValueChanged += new XComponent.SliderBar.ValueChangedHandler(this.macTrackVolumen_ValueChanged);
+            // 
+            // btnVolumen
+            // 
+            this.btnVolumen.Image = global::LabRepaso_BryanMacario_1283816.Properties.Resources.altavoz;
+            this.btnVolumen.Location = new System.Drawing.Point(620, 13);
+            this.btnVolumen.Name = "btnVolumen";
+            this.btnVolumen.Size = new System.Drawing.Size(33, 28);
+            this.btnVolumen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnVolumen.TabIndex = 13;
+            this.btnVolumen.TabStop = false;
+            // 
+            // btnStop
+            // 
+            this.btnStop.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnStop.Image = global::LabRepaso_BryanMacario_1283816.Properties.Resources.detener;
+            this.btnStop.Location = new System.Drawing.Point(447, 18);
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(29, 30);
+            this.btnStop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnStop.TabIndex = 12;
+            this.btnStop.TabStop = false;
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
+            // 
+            // btnPlay
+            // 
+            this.btnPlay.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPlay.Image = global::LabRepaso_BryanMacario_1283816.Properties.Resources.boton_de_reproduccion;
+            this.btnPlay.Location = new System.Drawing.Point(379, 7);
+            this.btnPlay.Name = "btnPlay";
+            this.btnPlay.Size = new System.Drawing.Size(48, 44);
+            this.btnPlay.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnPlay.TabIndex = 10;
+            this.btnPlay.TabStop = false;
+            this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.groupBox1.Controls.Add(this.labelCancion);
+            this.groupBox1.Controls.Add(this.btnStop);
+            this.groupBox1.Controls.Add(this.macTrackVolumen);
+            this.groupBox1.Controls.Add(this.btnPlay);
+            this.groupBox1.Controls.Add(this.btnVolumen);
+            this.groupBox1.Controls.Add(this.macTrackStatus);
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.groupBox1.Location = new System.Drawing.Point(13, 363);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(791, 72);
+            this.groupBox1.TabIndex = 14;
+            this.groupBox1.TabStop = false;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // labelCancion
+            // 
+            this.labelCancion.AutoSize = true;
+            this.labelCancion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCancion.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelCancion.Location = new System.Drawing.Point(54, 18);
+            this.labelCancion.Name = "labelCancion";
+            this.labelCancion.Size = new System.Drawing.Size(0, 17);
+            this.labelCancion.TabIndex = 14;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.InfoText;
-            this.ClientSize = new System.Drawing.Size(816, 404);
+            this.ClientSize = new System.Drawing.Size(816, 447);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.gBBiblioteca);
+            this.Controls.Add(this.WMP);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
@@ -476,6 +608,11 @@
             this.gBCrearLista.ResumeLayout(false);
             this.gBCrearLista.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WMP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnVolumen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnStop)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPlay)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -520,6 +657,14 @@
         private System.Windows.Forms.ToolStripMenuItem descendenteToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem albúmToolStripMenuItem;
         private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.PictureBox btnPlay;
+        private XComponent.SliderBar.MACTrackBar macTrackVolumen;
+        private XComponent.SliderBar.MACTrackBar macTrackStatus;
+        private System.Windows.Forms.PictureBox btnStop;
+        private System.Windows.Forms.PictureBox btnVolumen;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label labelCancion;
     }
 }
 

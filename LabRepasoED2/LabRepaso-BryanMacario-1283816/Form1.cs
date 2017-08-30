@@ -21,6 +21,7 @@ namespace LabRepaso_BryanMacario_1283816
         private List<Cancion> actual;
         private int contador = 0;
         private int listaActual = 0;
+        private bool play = false;
 
         public Form1()
         {
@@ -81,8 +82,9 @@ namespace LabRepaso_BryanMacario_1283816
         {
 
             string ruta = actual[listViewCanciones.FocusedItem.Index].Ruta;
-
-            WMP.URL = ruta;      
+            WMP.URL = ruta;
+            btnPlay.Image = Properties.Resources.boton_redondo_de_pausa;
+            labelCancion.Text = actual[listViewCanciones.FocusedItem.Index].Nombre;
         }
 
         private void MostrarCanciones(List<Cancion> lista)
@@ -188,6 +190,7 @@ namespace LabRepaso_BryanMacario_1283816
                            MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             txtNombre.Focus();
+            txtNombre.SelectAll();
         }
 
         private void ConfiguracionesIniciales()
@@ -226,15 +229,49 @@ namespace LabRepaso_BryanMacario_1283816
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            listViewCanciones.Width = 623;
 
-            listViewCanciones.Columns[0].Width = 225;
-            listViewCanciones.Columns[1].Width = 150;
-            listViewCanciones.Columns[2].Width = 127;
-            listViewCanciones.Columns[3].Width = 116;
+            if(listBoxMostrar.Items.Count == 0)
+            {
+                listViewCanciones.Width = 623;
 
-            gBCrearLista.Enabled = false;
-            gBCrearLista.Visible = false;
+                listViewCanciones.Columns[0].Width = 225;
+                listViewCanciones.Columns[1].Width = 150;
+                listViewCanciones.Columns[2].Width = 127;
+                listViewCanciones.Columns[3].Width = 116;
+
+                gBCrearLista.Enabled = false;
+                gBCrearLista.Visible = false;
+
+                listas[contador] = null;
+            }
+            else
+            {
+                DialogResult result;
+                result = MessageBox.Show("No se han guardado los cambios realizados." +
+                                        "\n ¿Seguro que desea salir?", "Advertencia",
+                                        MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+                if(result == System.Windows.Forms.DialogResult.OK)
+                {
+                    listViewCanciones.Width = 623;
+
+                    listViewCanciones.Columns[0].Width = 225;
+                    listViewCanciones.Columns[1].Width = 150;
+                    listViewCanciones.Columns[2].Width = 127;
+                    listViewCanciones.Columns[3].Width = 116;
+
+                    gBCrearLista.Enabled = false;
+                    gBCrearLista.Visible = false;
+
+                    listas.RemoveAt(contador);
+                }
+                else
+                {
+                    return;
+                }
+            }
+
+            
         }
 
         private void btnCrearLista_Click(object sender, EventArgs e)
@@ -248,8 +285,12 @@ namespace LabRepaso_BryanMacario_1283816
             if(listViewCanciones.FocusedItem != null)
             {
                 ListView.SelectedIndexCollection indices = listViewCanciones.SelectedIndices;
-                listas.Add(new ListaReproduccion());
 
+                if(listas.Count() == contador)
+                {
+                    listas.Add(new ListaReproduccion());
+                }
+                
                 foreach(int i in indices)
                 {
                     listas[contador].Canciones.Add(listas[0].Canciones[i]);
@@ -324,6 +365,68 @@ namespace LabRepaso_BryanMacario_1283816
                 }
             }
 
+        }
+
+        private void btnPlay_Click(object sender, EventArgs e)
+        {
+            switch(play)
+            {
+                case true:
+                    WMP.Ctlcontrols.pause();
+                    btnPlay.Image = Properties.Resources.boton_de_reproduccion;
+                    play = false;
+                    break;
+
+                case false:
+                    WMP.Ctlcontrols.play();
+                    btnPlay.Image = Properties.Resources.boton_redondo_de_pausa;
+                    play = true;
+                    break;
+
+            }
+        }
+
+        private void btnStop_Click(object sender, EventArgs e)
+        {
+            WMP.Ctlcontrols.stop();
+            btnPlay.Image = Properties.Resources.boton_de_reproduccion;
+            play = false;
+        }
+
+        public void ActualizarDatosTrack()
+        {
+            if(WMP.playState == WMPLib.WMPPlayState.wmppsPlaying)
+            {
+                //Control de tiempo máximo del mp3 actual
+                macTrackStatus.Maximum = (int)WMP.Ctlcontrols.currentItem.duration;
+                timer1.Start();
+            }
+            else if(WMP.playState == WMPLib.WMPPlayState.wmppsPaused)
+            {
+                timer1.Stop();
+            }
+            else if (WMP.playState == WMPLib.WMPPlayState.wmppsStopped)
+            {
+                timer1.Stop();
+                macTrackStatus.Value = 0;
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            ActualizarDatosTrack();
+            macTrackStatus.Value = (int)WMP.Ctlcontrols.currentPosition;
+            macTrackVolumen.Value = WMP.settings.volume;
+        }
+
+        private void WMP_PlayStateChange(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)
+        {
+            ActualizarDatosTrack();
+        }
+
+        private void macTrackVolumen_ValueChanged(object sender, decimal value)
+        {
+            WMP.settings.volume = macTrackVolumen.Value;
         }
     }
 }
