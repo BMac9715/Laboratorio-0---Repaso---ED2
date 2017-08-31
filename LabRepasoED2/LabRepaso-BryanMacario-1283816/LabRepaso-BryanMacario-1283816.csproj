@@ -122,5 +122,11 @@
   <ItemGroup>
     <None Include="Recursos\altavoz.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Recursos\omitir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Recursos\anterior.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

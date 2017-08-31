@@ -31,6 +31,7 @@ namespace LabRepaso_BryanMacario_1283816
             actual = listas[0].Canciones;
             names = new List<string>();
             contador = 1;
+            treeView1.ExpandAll();
             ConfiguracionesIniciales();
         }
 
@@ -42,7 +43,6 @@ namespace LabRepaso_BryanMacario_1283816
 
             if(BusquedaArchivos.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-
                 string[] rutas = BusquedaArchivos.FileNames;
                 names = BusquedaArchivos.SafeFileNames.ToList();
 
@@ -69,6 +69,7 @@ namespace LabRepaso_BryanMacario_1283816
                     }
 
                     listas[listaActual].Canciones.Add(cancionActual);
+                    listas[listaActual].Buscador.Add(cancionActual.Nombre, cancionActual);
                     
                     x++;
                 }
@@ -80,7 +81,6 @@ namespace LabRepaso_BryanMacario_1283816
 
         private void listViewCanciones_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-
             string ruta = actual[listViewCanciones.FocusedItem.Index].Ruta;
             WMP.URL = ruta;
             btnPlay.Image = Properties.Resources.boton_redondo_de_pausa;
@@ -208,6 +208,8 @@ namespace LabRepaso_BryanMacario_1283816
 
         private void ConfiguracionesCrearNuevaLista()
         {
+            txtNombre.Text = "NuevaLista";
+            
             listViewCanciones.Width = 445;
             listViewCanciones.Columns[0].Width = 165;
             listViewCanciones.Columns[1].Width = 100;
@@ -359,8 +361,9 @@ namespace LabRepaso_BryanMacario_1283816
 
                 foreach (int i in indices)
                 {
-                    listas[listaActual].Buscador.Remove(listas[listaActual].Canciones[i].Nombre);
-                    listas[listaActual].Canciones.RemoveAt(i);                
+                    Cancion temp = listas[listaActual].Buscador[listViewCanciones.Items[i].Text];
+                    listas[listaActual].Buscador.Remove(listViewCanciones.Items[i].Text);
+                    listas[listaActual].Canciones.Remove(temp);                
                     listViewCanciones.Items.RemoveAt(i);
                 }
             }
@@ -369,20 +372,23 @@ namespace LabRepaso_BryanMacario_1283816
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            switch(play)
+            if (listViewCanciones.Items.Count != 0)
             {
-                case true:
-                    WMP.Ctlcontrols.pause();
-                    btnPlay.Image = Properties.Resources.boton_de_reproduccion;
-                    play = false;
-                    break;
+                switch (play)
+                {
+                    case true:
+                        WMP.Ctlcontrols.pause();
+                        btnPlay.Image = Properties.Resources.boton_de_reproduccion;
+                        play = false;
+                        break;
 
-                case false:
-                    WMP.Ctlcontrols.play();
-                    btnPlay.Image = Properties.Resources.boton_redondo_de_pausa;
-                    play = true;
-                    break;
+                    case false:
+                        WMP.Ctlcontrols.play();
+                        btnPlay.Image = Properties.Resources.boton_redondo_de_pausa;
+                        play = true;
+                        break;
 
+                }
             }
         }
 
@@ -427,6 +433,61 @@ namespace LabRepaso_BryanMacario_1283816
         private void macTrackVolumen_ValueChanged(object sender, decimal value)
         {
             WMP.settings.volume = macTrackVolumen.Value;
+        }
+
+        private void btnSiguientes_Click(object sender, EventArgs e)
+        {
+             
+        }
+
+        private void Search(string nombre)
+        {
+            try
+            {
+                Cancion temp = listas[listaActual].Buscador[nombre];
+
+                listViewCanciones.Items.Clear();
+
+                ListViewItem item = new ListViewItem(nombre);
+
+                item.SubItems.Add(temp.Interprete);
+                item.SubItems.Add(temp.Album);
+                item.SubItems.Add(temp.Duracion);
+
+                listViewCanciones.Items.Add(item);
+                actual = new List<Cancion>();
+                actual.Add(temp);
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show("No se ha encontrado la canción deseada. " +
+                                "\nRecuerde que debe ingresar el nombre tal y como se encuentra almacenado." +
+                                "\nEjemplo: 'MiCancion.mp3'","Busqueda No Encontrada", MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }         
+        }
+
+        private void txtBusqueda_KeyPress(object sender, KeyPressEventArgs e)
+        {
+           
+            if(e.KeyChar == (char)13)
+            {
+                Search(txtBusqueda.Text);
+            }
+            
+        }
+
+        private void txtBusqueda_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtBusqueda.Text = "";
+        }
+
+        private void txtBusqueda_TextChanged(object sender, EventArgs e)
+        {
+            if (txtBusqueda.Text == "")
+            {
+                actual = listas[listaActual].Canciones;
+                MostrarCanciones(actual);
+            }
         }
     }
 }

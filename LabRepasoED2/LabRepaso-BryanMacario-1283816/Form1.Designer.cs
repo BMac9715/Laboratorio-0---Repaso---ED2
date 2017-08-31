@@ -29,26 +29,26 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode67 = new System.Windows.Forms.TreeNode("Toda la música");
-            System.Windows.Forms.TreeNode treeNode68 = new System.Windows.Forms.TreeNode("Listas de Reproducción", new System.Windows.Forms.TreeNode[] {
-            treeNode67});
-            System.Windows.Forms.TreeNode treeNode69 = new System.Windows.Forms.TreeNode("Ascendente");
-            System.Windows.Forms.TreeNode treeNode70 = new System.Windows.Forms.TreeNode("Descendente");
-            System.Windows.Forms.TreeNode treeNode71 = new System.Windows.Forms.TreeNode("Nombre", new System.Windows.Forms.TreeNode[] {
-            treeNode69,
-            treeNode70});
-            System.Windows.Forms.TreeNode treeNode72 = new System.Windows.Forms.TreeNode("Ascendente");
-            System.Windows.Forms.TreeNode treeNode73 = new System.Windows.Forms.TreeNode("Descendente");
-            System.Windows.Forms.TreeNode treeNode74 = new System.Windows.Forms.TreeNode("Duración", new System.Windows.Forms.TreeNode[] {
-            treeNode72,
-            treeNode73});
-            System.Windows.Forms.TreeNode treeNode75 = new System.Windows.Forms.TreeNode("Interprete");
-            System.Windows.Forms.TreeNode treeNode76 = new System.Windows.Forms.TreeNode("Albúm");
-            System.Windows.Forms.TreeNode treeNode77 = new System.Windows.Forms.TreeNode("Música", new System.Windows.Forms.TreeNode[] {
-            treeNode71,
-            treeNode74,
-            treeNode75,
-            treeNode76});
+            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("Toda la música");
+            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("Listas de Reproducción", new System.Windows.Forms.TreeNode[] {
+            treeNode34});
+            System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("Ascendente");
+            System.Windows.Forms.TreeNode treeNode37 = new System.Windows.Forms.TreeNode("Descendente");
+            System.Windows.Forms.TreeNode treeNode38 = new System.Windows.Forms.TreeNode("Nombre", new System.Windows.Forms.TreeNode[] {
+            treeNode36,
+            treeNode37});
+            System.Windows.Forms.TreeNode treeNode39 = new System.Windows.Forms.TreeNode("Ascendente");
+            System.Windows.Forms.TreeNode treeNode40 = new System.Windows.Forms.TreeNode("Descendente");
+            System.Windows.Forms.TreeNode treeNode41 = new System.Windows.Forms.TreeNode("Duración", new System.Windows.Forms.TreeNode[] {
+            treeNode39,
+            treeNode40});
+            System.Windows.Forms.TreeNode treeNode42 = new System.Windows.Forms.TreeNode("Interprete");
+            System.Windows.Forms.TreeNode treeNode43 = new System.Windows.Forms.TreeNode("Albúm");
+            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("Música", new System.Windows.Forms.TreeNode[] {
+            treeNode38,
+            treeNode41,
+            treeNode42,
+            treeNode43});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -84,26 +84,26 @@
             this.columnDuracion = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnCrearLista = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.WMP = new AxWMPLib.AxWindowsMediaPlayer();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.macTrackStatus = new XComponent.SliderBar.MACTrackBar();
             this.macTrackVolumen = new XComponent.SliderBar.MACTrackBar();
-            this.btnVolumen = new System.Windows.Forms.PictureBox();
-            this.btnStop = new System.Windows.Forms.PictureBox();
-            this.btnPlay = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.labelCancion = new System.Windows.Forms.Label();
+            this.btnStop = new System.Windows.Forms.PictureBox();
+            this.btnPlay = new System.Windows.Forms.PictureBox();
+            this.btnVolumen = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.gBBiblioteca.SuspendLayout();
             this.panel1.SuspendLayout();
             this.gBCrearLista.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WMP)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnVolumen)).BeginInit();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnStop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPlay)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnVolumen)).BeginInit();
             this.SuspendLayout();
             // 
             // treeView1
@@ -112,31 +112,31 @@
             this.treeView1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.treeView1.Location = new System.Drawing.Point(6, 19);
             this.treeView1.Name = "treeView1";
-            treeNode67.Name = "NodoTodo";
-            treeNode67.Text = "Toda la música";
-            treeNode68.Name = "NodoListas";
-            treeNode68.Text = "Listas de Reproducción";
-            treeNode69.Name = "NodoTituloA";
-            treeNode69.Text = "Ascendente";
-            treeNode70.Name = "NodoTituloD";
-            treeNode70.Text = "Descendente";
-            treeNode71.Name = "NodoTitulo";
-            treeNode71.Text = "Nombre";
-            treeNode72.Name = "NodoTamañoA";
-            treeNode72.Text = "Ascendente";
-            treeNode73.Name = "NodoTamañoD";
-            treeNode73.Text = "Descendente";
-            treeNode74.Name = "NodoTamaño";
-            treeNode74.Text = "Duración";
-            treeNode75.Name = "NodoInterprete";
-            treeNode75.Text = "Interprete";
-            treeNode76.Name = "NodoAlbum";
-            treeNode76.Text = "Albúm";
-            treeNode77.Name = "NodoMusica";
-            treeNode77.Text = "Música";
+            treeNode34.Name = "NodoTodo";
+            treeNode34.Text = "Toda la música";
+            treeNode35.Name = "NodoListas";
+            treeNode35.Text = "Listas de Reproducción";
+            treeNode36.Name = "NodoTituloA";
+            treeNode36.Text = "Ascendente";
+            treeNode37.Name = "NodoTituloD";
+            treeNode37.Text = "Descendente";
+            treeNode38.Name = "NodoTitulo";
+            treeNode38.Text = "Nombre";
+            treeNode39.Name = "NodoTamañoA";
+            treeNode39.Text = "Ascendente";
+            treeNode40.Name = "NodoTamañoD";
+            treeNode40.Text = "Descendente";
+            treeNode41.Name = "NodoTamaño";
+            treeNode41.Text = "Duración";
+            treeNode42.Name = "NodoInterprete";
+            treeNode42.Text = "Interprete";
+            treeNode43.Name = "NodoAlbum";
+            treeNode43.Text = "Albúm";
+            treeNode44.Name = "NodoMusica";
+            treeNode44.Text = "Música";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode68,
-            treeNode77});
+            treeNode35,
+            treeNode44});
             this.treeView1.Size = new System.Drawing.Size(146, 292);
             this.treeView1.TabIndex = 0;
             this.treeView1.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseClick);
@@ -278,7 +278,7 @@
             this.panel1.Controls.Add(this.listViewCanciones);
             this.panel1.Controls.Add(this.btnCrearLista);
             this.panel1.Controls.Add(this.btnAdd);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txtBusqueda);
             this.panel1.Location = new System.Drawing.Point(177, 28);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(627, 329);
@@ -435,22 +435,25 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // textBox1
+            // txtBusqueda
             // 
-            this.textBox1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.DimGray;
-            this.textBox1.Location = new System.Drawing.Point(266, 14);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(181, 21);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.Tag = "";
-            this.textBox1.Text = "Buscar";
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBusqueda.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBusqueda.ForeColor = System.Drawing.Color.DimGray;
+            this.txtBusqueda.Location = new System.Drawing.Point(266, 14);
+            this.txtBusqueda.Name = "txtBusqueda";
+            this.txtBusqueda.Size = new System.Drawing.Size(181, 21);
+            this.txtBusqueda.TabIndex = 2;
+            this.txtBusqueda.Tag = "";
+            this.txtBusqueda.Text = "Buscar";
+            this.txtBusqueda.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBusqueda.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtBusqueda_MouseClick);
+            this.txtBusqueda.TextChanged += new System.EventHandler(this.txtBusqueda_TextChanged);
+            this.txtBusqueda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBusqueda_KeyPress);
             // 
             // WMP
             // 
             this.WMP.Enabled = true;
-            this.WMP.Location = new System.Drawing.Point(592, 403);
+            this.WMP.Location = new System.Drawing.Point(592, 450);
             this.WMP.Name = "WMP";
             this.WMP.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("WMP.OcxState")));
             this.WMP.Size = new System.Drawing.Size(118, 46);
@@ -518,40 +521,6 @@
             this.macTrackVolumen.Value = 0;
             this.macTrackVolumen.ValueChanged += new XComponent.SliderBar.ValueChangedHandler(this.macTrackVolumen_ValueChanged);
             // 
-            // btnVolumen
-            // 
-            this.btnVolumen.Image = global::LabRepaso_BryanMacario_1283816.Properties.Resources.altavoz;
-            this.btnVolumen.Location = new System.Drawing.Point(620, 13);
-            this.btnVolumen.Name = "btnVolumen";
-            this.btnVolumen.Size = new System.Drawing.Size(33, 28);
-            this.btnVolumen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnVolumen.TabIndex = 13;
-            this.btnVolumen.TabStop = false;
-            // 
-            // btnStop
-            // 
-            this.btnStop.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnStop.Image = global::LabRepaso_BryanMacario_1283816.Properties.Resources.detener;
-            this.btnStop.Location = new System.Drawing.Point(447, 18);
-            this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(29, 30);
-            this.btnStop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnStop.TabIndex = 12;
-            this.btnStop.TabStop = false;
-            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
-            // 
-            // btnPlay
-            // 
-            this.btnPlay.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPlay.Image = global::LabRepaso_BryanMacario_1283816.Properties.Resources.boton_de_reproduccion;
-            this.btnPlay.Location = new System.Drawing.Point(379, 7);
-            this.btnPlay.Name = "btnPlay";
-            this.btnPlay.Size = new System.Drawing.Size(48, 44);
-            this.btnPlay.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnPlay.TabIndex = 10;
-            this.btnPlay.TabStop = false;
-            this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
-            // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonFace;
@@ -579,10 +548,44 @@
             this.labelCancion.AutoSize = true;
             this.labelCancion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCancion.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelCancion.Location = new System.Drawing.Point(54, 18);
+            this.labelCancion.Location = new System.Drawing.Point(36, 24);
             this.labelCancion.Name = "labelCancion";
             this.labelCancion.Size = new System.Drawing.Size(0, 17);
             this.labelCancion.TabIndex = 14;
+            // 
+            // btnStop
+            // 
+            this.btnStop.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnStop.Image = global::LabRepaso_BryanMacario_1283816.Properties.Resources.detener;
+            this.btnStop.Location = new System.Drawing.Point(447, 21);
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(29, 30);
+            this.btnStop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnStop.TabIndex = 12;
+            this.btnStop.TabStop = false;
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
+            // 
+            // btnPlay
+            // 
+            this.btnPlay.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPlay.Image = global::LabRepaso_BryanMacario_1283816.Properties.Resources.boton_de_reproduccion;
+            this.btnPlay.Location = new System.Drawing.Point(379, 7);
+            this.btnPlay.Name = "btnPlay";
+            this.btnPlay.Size = new System.Drawing.Size(48, 44);
+            this.btnPlay.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnPlay.TabIndex = 10;
+            this.btnPlay.TabStop = false;
+            this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
+            // 
+            // btnVolumen
+            // 
+            this.btnVolumen.Image = global::LabRepaso_BryanMacario_1283816.Properties.Resources.altavoz;
+            this.btnVolumen.Location = new System.Drawing.Point(620, 13);
+            this.btnVolumen.Name = "btnVolumen";
+            this.btnVolumen.Size = new System.Drawing.Size(33, 28);
+            this.btnVolumen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnVolumen.TabIndex = 13;
+            this.btnVolumen.TabStop = false;
             // 
             // Form1
             // 
@@ -590,16 +593,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.InfoText;
-            this.ClientSize = new System.Drawing.Size(816, 447);
+            this.ClientSize = new System.Drawing.Size(816, 441);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.gBBiblioteca);
             this.Controls.Add(this.WMP);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Reproductor de Música  by Bryan Macario";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.gBBiblioteca.ResumeLayout(false);
@@ -608,11 +612,11 @@
             this.gBCrearLista.ResumeLayout(false);
             this.gBCrearLista.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WMP)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnVolumen)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnStop)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnPlay)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnStop)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPlay)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnVolumen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -636,7 +640,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnCrearLista;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtBusqueda;
         private AxWMPLib.AxWindowsMediaPlayer WMP;
         private System.Windows.Forms.ListView listViewCanciones;
         private System.Windows.Forms.ColumnHeader columnName;

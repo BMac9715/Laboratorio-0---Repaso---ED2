@@ -73,6 +73,16 @@ namespace LabRepaso_BryanMacario_1283816.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap anterior {
+            get {
+                object obj = ResourceManager.GetObject("anterior", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap boton_de_reproduccion {
             get {
                 object obj = ResourceManager.GetObject("boton-de-reproduccion", resourceCulture);
@@ -96,6 +106,16 @@ namespace LabRepaso_BryanMacario_1283816.Properties {
         internal static System.Drawing.Bitmap detener {
             get {
                 object obj = ResourceManager.GetObject("detener", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap omitir {
+            get {
+                object obj = ResourceManager.GetObject("omitir", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
