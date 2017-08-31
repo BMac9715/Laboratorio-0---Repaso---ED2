@@ -29,26 +29,26 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("Toda la música");
-            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("Listas de Reproducción", new System.Windows.Forms.TreeNode[] {
-            treeNode34});
-            System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("Ascendente");
-            System.Windows.Forms.TreeNode treeNode37 = new System.Windows.Forms.TreeNode("Descendente");
-            System.Windows.Forms.TreeNode treeNode38 = new System.Windows.Forms.TreeNode("Nombre", new System.Windows.Forms.TreeNode[] {
-            treeNode36,
-            treeNode37});
-            System.Windows.Forms.TreeNode treeNode39 = new System.Windows.Forms.TreeNode("Ascendente");
-            System.Windows.Forms.TreeNode treeNode40 = new System.Windows.Forms.TreeNode("Descendente");
-            System.Windows.Forms.TreeNode treeNode41 = new System.Windows.Forms.TreeNode("Duración", new System.Windows.Forms.TreeNode[] {
-            treeNode39,
-            treeNode40});
-            System.Windows.Forms.TreeNode treeNode42 = new System.Windows.Forms.TreeNode("Interprete");
-            System.Windows.Forms.TreeNode treeNode43 = new System.Windows.Forms.TreeNode("Albúm");
-            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("Música", new System.Windows.Forms.TreeNode[] {
-            treeNode38,
-            treeNode41,
-            treeNode42,
-            treeNode43});
+            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Toda la música");
+            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("Listas de Reproducción", new System.Windows.Forms.TreeNode[] {
+            treeNode23});
+            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Ascendente");
+            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("Descendente");
+            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("Nombre", new System.Windows.Forms.TreeNode[] {
+            treeNode25,
+            treeNode26});
+            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("Ascendente");
+            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("Descendente");
+            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("Duración", new System.Windows.Forms.TreeNode[] {
+            treeNode28,
+            treeNode29});
+            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("Interprete");
+            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("Albúm");
+            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("Música", new System.Windows.Forms.TreeNode[] {
+            treeNode27,
+            treeNode30,
+            treeNode31,
+            treeNode32});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -95,6 +95,7 @@
             this.btnStop = new System.Windows.Forms.PictureBox();
             this.btnPlay = new System.Windows.Forms.PictureBox();
             this.btnVolumen = new System.Windows.Forms.PictureBox();
+            this.btnPause = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.gBBiblioteca.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -104,6 +105,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnStop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPlay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolumen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPause)).BeginInit();
             this.SuspendLayout();
             // 
             // treeView1
@@ -112,31 +114,31 @@
             this.treeView1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.treeView1.Location = new System.Drawing.Point(6, 19);
             this.treeView1.Name = "treeView1";
-            treeNode34.Name = "NodoTodo";
-            treeNode34.Text = "Toda la música";
-            treeNode35.Name = "NodoListas";
-            treeNode35.Text = "Listas de Reproducción";
-            treeNode36.Name = "NodoTituloA";
-            treeNode36.Text = "Ascendente";
-            treeNode37.Name = "NodoTituloD";
-            treeNode37.Text = "Descendente";
-            treeNode38.Name = "NodoTitulo";
-            treeNode38.Text = "Nombre";
-            treeNode39.Name = "NodoTamañoA";
-            treeNode39.Text = "Ascendente";
-            treeNode40.Name = "NodoTamañoD";
-            treeNode40.Text = "Descendente";
-            treeNode41.Name = "NodoTamaño";
-            treeNode41.Text = "Duración";
-            treeNode42.Name = "NodoInterprete";
-            treeNode42.Text = "Interprete";
-            treeNode43.Name = "NodoAlbum";
-            treeNode43.Text = "Albúm";
-            treeNode44.Name = "NodoMusica";
-            treeNode44.Text = "Música";
+            treeNode23.Name = "NodoTodo";
+            treeNode23.Text = "Toda la música";
+            treeNode24.Name = "NodoListas";
+            treeNode24.Text = "Listas de Reproducción";
+            treeNode25.Name = "NodoTituloA";
+            treeNode25.Text = "Ascendente";
+            treeNode26.Name = "NodoTituloD";
+            treeNode26.Text = "Descendente";
+            treeNode27.Name = "NodoTitulo";
+            treeNode27.Text = "Nombre";
+            treeNode28.Name = "NodoTamañoA";
+            treeNode28.Text = "Ascendente";
+            treeNode29.Name = "NodoTamañoD";
+            treeNode29.Text = "Descendente";
+            treeNode30.Name = "NodoTamaño";
+            treeNode30.Text = "Duración";
+            treeNode31.Name = "NodoInterprete";
+            treeNode31.Text = "Interprete";
+            treeNode32.Name = "NodoAlbum";
+            treeNode32.Text = "Albúm";
+            treeNode33.Name = "NodoMusica";
+            treeNode33.Text = "Música";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode35,
-            treeNode44});
+            treeNode24,
+            treeNode33});
             this.treeView1.Size = new System.Drawing.Size(146, 292);
             this.treeView1.TabIndex = 0;
             this.treeView1.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseClick);
@@ -168,18 +170,21 @@
             this.agregarMúsicaToolStripMenuItem.Name = "agregarMúsicaToolStripMenuItem";
             this.agregarMúsicaToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
             this.agregarMúsicaToolStripMenuItem.Text = "Agregar Música";
+            this.agregarMúsicaToolStripMenuItem.Click += new System.EventHandler(this.agregarMúsicaToolStripMenuItem_Click);
             // 
             // crearListaDeReproduccionToolStripMenuItem
             // 
             this.crearListaDeReproduccionToolStripMenuItem.Name = "crearListaDeReproduccionToolStripMenuItem";
             this.crearListaDeReproduccionToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
             this.crearListaDeReproduccionToolStripMenuItem.Text = "Crear Lista de Reproduccion";
+            this.crearListaDeReproduccionToolStripMenuItem.Click += new System.EventHandler(this.crearListaDeReproduccionToolStripMenuItem_Click);
             // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
             this.salirToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
             this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // ordenarPorToolStripMenuItem
             // 
@@ -198,20 +203,22 @@
             this.ascendenteToolStripMenuItem,
             this.descendenteToolStripMenuItem});
             this.títuloToolStripMenuItem.Name = "títuloToolStripMenuItem";
-            this.títuloToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.títuloToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.títuloToolStripMenuItem.Text = "Nombre";
             // 
             // ascendenteToolStripMenuItem
             // 
             this.ascendenteToolStripMenuItem.Name = "ascendenteToolStripMenuItem";
-            this.ascendenteToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.ascendenteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.ascendenteToolStripMenuItem.Text = "Ascendente";
+            this.ascendenteToolStripMenuItem.Click += new System.EventHandler(this.ascendenteToolStripMenuItem_Click);
             // 
             // descendenteToolStripMenuItem
             // 
             this.descendenteToolStripMenuItem.Name = "descendenteToolStripMenuItem";
-            this.descendenteToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.descendenteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.descendenteToolStripMenuItem.Text = "Descendente";
+            this.descendenteToolStripMenuItem.Click += new System.EventHandler(this.descendenteToolStripMenuItem_Click);
             // 
             // tamañoToolStripMenuItem
             // 
@@ -219,32 +226,36 @@
             this.ascendenteToolStripMenuItem1,
             this.descendenteToolStripMenuItem1});
             this.tamañoToolStripMenuItem.Name = "tamañoToolStripMenuItem";
-            this.tamañoToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.tamañoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.tamañoToolStripMenuItem.Text = "Duración";
             // 
             // ascendenteToolStripMenuItem1
             // 
             this.ascendenteToolStripMenuItem1.Name = "ascendenteToolStripMenuItem1";
-            this.ascendenteToolStripMenuItem1.Size = new System.Drawing.Size(142, 22);
+            this.ascendenteToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.ascendenteToolStripMenuItem1.Text = "Ascendente";
+            this.ascendenteToolStripMenuItem1.Click += new System.EventHandler(this.ascendenteToolStripMenuItem1_Click);
             // 
             // descendenteToolStripMenuItem1
             // 
             this.descendenteToolStripMenuItem1.Name = "descendenteToolStripMenuItem1";
-            this.descendenteToolStripMenuItem1.Size = new System.Drawing.Size(142, 22);
+            this.descendenteToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.descendenteToolStripMenuItem1.Text = "Descendente";
+            this.descendenteToolStripMenuItem1.Click += new System.EventHandler(this.descendenteToolStripMenuItem1_Click);
             // 
             // interpreteToolStripMenuItem
             // 
             this.interpreteToolStripMenuItem.Name = "interpreteToolStripMenuItem";
-            this.interpreteToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.interpreteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.interpreteToolStripMenuItem.Text = "Interprete";
+            this.interpreteToolStripMenuItem.Click += new System.EventHandler(this.interpreteToolStripMenuItem_Click);
             // 
             // albúmToolStripMenuItem
             // 
             this.albúmToolStripMenuItem.Name = "albúmToolStripMenuItem";
-            this.albúmToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.albúmToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.albúmToolStripMenuItem.Text = "Albúm";
+            this.albúmToolStripMenuItem.Click += new System.EventHandler(this.albúmToolStripMenuItem_Click);
             // 
             // ayudaToolStripMenuItem
             // 
@@ -259,6 +270,7 @@
             this.acercaDelSoftwareToolStripMenuItem.Name = "acercaDelSoftwareToolStripMenuItem";
             this.acercaDelSoftwareToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.acercaDelSoftwareToolStripMenuItem.Text = "Acerca del Software";
+            this.acercaDelSoftwareToolStripMenuItem.Click += new System.EventHandler(this.acercaDelSoftwareToolStripMenuItem_Click);
             // 
             // gBBiblioteca
             // 
@@ -478,11 +490,11 @@
             this.macTrackStatus.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.macTrackStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(125)))), ((int)(((byte)(123)))));
             this.macTrackStatus.IndentHeight = 6;
-            this.macTrackStatus.Location = new System.Drawing.Point(39, 47);
+            this.macTrackStatus.Location = new System.Drawing.Point(50, 47);
             this.macTrackStatus.Maximum = 100;
             this.macTrackStatus.Minimum = 0;
             this.macTrackStatus.Name = "macTrackStatus";
-            this.macTrackStatus.Size = new System.Drawing.Size(713, 25);
+            this.macTrackStatus.Size = new System.Drawing.Size(693, 25);
             this.macTrackStatus.TabIndex = 8;
             this.macTrackStatus.TextTickStyle = System.Windows.Forms.TickStyle.None;
             this.macTrackStatus.TickColor = System.Drawing.Color.Red;
@@ -503,7 +515,7 @@
             this.macTrackVolumen.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.macTrackVolumen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(125)))), ((int)(((byte)(123)))));
             this.macTrackVolumen.IndentHeight = 6;
-            this.macTrackVolumen.Location = new System.Drawing.Point(659, 13);
+            this.macTrackVolumen.Location = new System.Drawing.Point(650, 13);
             this.macTrackVolumen.Maximum = 100;
             this.macTrackVolumen.Minimum = 0;
             this.macTrackVolumen.Name = "macTrackVolumen";
@@ -524,6 +536,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.groupBox1.Controls.Add(this.btnPause);
             this.groupBox1.Controls.Add(this.labelCancion);
             this.groupBox1.Controls.Add(this.btnStop);
             this.groupBox1.Controls.Add(this.macTrackVolumen);
@@ -548,7 +561,7 @@
             this.labelCancion.AutoSize = true;
             this.labelCancion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCancion.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelCancion.Location = new System.Drawing.Point(36, 24);
+            this.labelCancion.Location = new System.Drawing.Point(28, 24);
             this.labelCancion.Name = "labelCancion";
             this.labelCancion.Size = new System.Drawing.Size(0, 17);
             this.labelCancion.TabIndex = 14;
@@ -557,9 +570,9 @@
             // 
             this.btnStop.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnStop.Image = global::LabRepaso_BryanMacario_1283816.Properties.Resources.detener;
-            this.btnStop.Location = new System.Drawing.Point(447, 21);
+            this.btnStop.Location = new System.Drawing.Point(486, 7);
             this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(29, 30);
+            this.btnStop.Size = new System.Drawing.Size(46, 44);
             this.btnStop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnStop.TabIndex = 12;
             this.btnStop.TabStop = false;
@@ -569,7 +582,7 @@
             // 
             this.btnPlay.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPlay.Image = global::LabRepaso_BryanMacario_1283816.Properties.Resources.boton_de_reproduccion;
-            this.btnPlay.Location = new System.Drawing.Point(379, 7);
+            this.btnPlay.Location = new System.Drawing.Point(421, 7);
             this.btnPlay.Name = "btnPlay";
             this.btnPlay.Size = new System.Drawing.Size(48, 44);
             this.btnPlay.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -580,12 +593,24 @@
             // btnVolumen
             // 
             this.btnVolumen.Image = global::LabRepaso_BryanMacario_1283816.Properties.Resources.altavoz;
-            this.btnVolumen.Location = new System.Drawing.Point(620, 13);
+            this.btnVolumen.Location = new System.Drawing.Point(611, 13);
             this.btnVolumen.Name = "btnVolumen";
             this.btnVolumen.Size = new System.Drawing.Size(33, 28);
             this.btnVolumen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnVolumen.TabIndex = 13;
             this.btnVolumen.TabStop = false;
+            // 
+            // btnPause
+            // 
+            this.btnPause.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPause.Image = global::LabRepaso_BryanMacario_1283816.Properties.Resources.boton_redondo_de_pausa;
+            this.btnPause.Location = new System.Drawing.Point(356, 7);
+            this.btnPause.Name = "btnPause";
+            this.btnPause.Size = new System.Drawing.Size(49, 44);
+            this.btnPause.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnPause.TabIndex = 15;
+            this.btnPause.TabStop = false;
+            this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
             // 
             // Form1
             // 
@@ -617,6 +642,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnStop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPlay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolumen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPause)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -669,6 +695,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label labelCancion;
+        private System.Windows.Forms.PictureBox btnPause;
     }
 }
 

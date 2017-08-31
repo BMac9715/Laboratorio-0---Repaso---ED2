@@ -36,12 +36,5 @@ namespace LabRepaso_BryanMacario_1283816.Clases
 
         public int Numero { get => numero; set => numero = value; }
 
-        public void LlenarDiccionario()
-        {
-            foreach(var element in this.canciones)
-            {
-                this.buscador.Add(element.Nombre, element);
-            }
-        }
     }
 }
